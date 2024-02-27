@@ -7,7 +7,26 @@ CREATE TABLE dima.Clients (
     Email VARCHAR(100),
     NumeroTelephone VARCHAR(15)
 );
-
+-- Création de la table "Employes" -- 
+ CREATE TABLE dima.Employes (
+	EmployeID INT,
+    Nom VARCHAR(200),
+    Prenom VARCHAR(200),
+    Fonction VARCHAR(200),
+    Email VARCHAR(200),
+    NuméroTelephone VARCHAR(200),
+    PRIMARY KEY (EmployeID)
+    ) ;
+	
+	-- Création de la table "Fournisseurs" -- 
+	
+   CREATE TABLE dima.Fournisseurs (
+	FournisseurID INT PRIMARY KEY,
+    NomFournisseur VARCHAR(200),
+    Adresse VARCHAR(100),
+    Email VARCHAR(200),
+    NumeroTelephone VARCHAR(200)
+    ) ; 
 -- Création de la table "Produits"
 CREATE TABLE dima.Produits (
     ProduitID INT PRIMARY KEY,
@@ -15,9 +34,13 @@ CREATE TABLE dima.Produits (
     Description TEXT,
     PrixUnitaire DECIMAL(10, 2)
 );
+-- ajout de la cle etrangere du fourniseur dans la table produit --
+Alter table dima.Produits ADD Column FournisseurID int;
+Alter table dima.Produits ADD CONSTRAINT FOREIGN KEY (FournisseurID) REFERENCES Fournisseurs(FournisseurID);
 
--- Création de la table "Ventes"
-CREATE TABLE Ventes (
+    
+-- Création de la table "Ventes" --
+CREATE TABLE dima.Ventes (
     VenteID INT PRIMARY KEY,
     DateVente DATE,
     ClientID INT REFERENCES Clients(ClientID),
@@ -36,14 +59,31 @@ VALUES
     (5, 'Chen', 'Li', '555 Oak Avenue', 'li.chen@email.com', '1112223333');
 
 -- Insertion de données de démonstration dans la table "Produits"
-INSERT INTO Produits (ProduitID, NomProduit, Description, PrixUnitaire)
+INSERT INTO dima.Produits (ProduitID, NomProduit, Description, PrixUnitaire)
 VALUES
     (1, 'Produit A', 'Description du Produit A', 10.99),
     (2, 'Produit B', 'Description du Produit B', 15.99),
     (3, 'Produit C', 'Description du Produit C', 8.49),
     (4, 'Produit D', 'Description du Produit D', 22.50),
     (5, 'Produit E', 'Description du Produit E', 12.75);
-
+CREATE TABLE dima.Fournisseurs (
+	FournisseurID INT PRIMARY KEY,
+    NomFournisseur VARCHAR(200),
+    Adresse VARCHAR(100),
+    Email VARCHAR(200),
+    NumeroTelephone VARCHAR(200)
+    ) ;
+    
+CREATE TABLE dima.Employes (
+	EmployeID INT,
+    Nom VARCHAR(200),
+    Prenom VARCHAR(200),
+    Fonction VARCHAR(200),
+    Email VARCHAR(200),
+    NuméroTelephone VARCHAR(200),
+    PRIMARY KEY (EmployeID)
+    ) ;
+    
 -- Insertion de données de démonstration dans la table "Ventes"
 INSERT INTO Ventes (VenteID, DateVente, ClientID, ProduitID, QuantiteVendue, MontantTotal)
 VALUES
