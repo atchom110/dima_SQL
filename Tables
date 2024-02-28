@@ -7,6 +7,9 @@ CREATE TABLE dima.Clients (
     Email VARCHAR(100),
     NumeroTelephone VARCHAR(15)
 );
+ALTER TABLE dima.Clients ADD zipCode DECIMAL;
+ALTER TABLE dima.Clients DROP COLUMN zipCode;
+
 -- Création de la table "Fournisseurs"
 CREATE TABLE dima.Fournisseurs (
 	FournisseurID INT PRIMARY KEY,
