@@ -14,6 +14,8 @@ ALTER TABLE dima.Clients DROP COLUMN zipCode;
 -- Afficher la structure de la Table Clients -- 
 DESCRIBE dima.Clients;
 
+--  Nom VARCHAR(40) UNIQUE,  Unique permet de specifier qu'un seul enregistrement doit porter ce nom ---
+
 -- Création de la table "Fournisseurs"
 CREATE TABLE dima.Fournisseurs (
 	FournisseurID INT PRIMARY KEY,
