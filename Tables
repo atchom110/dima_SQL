@@ -40,11 +40,15 @@ Alter table dima.Produits ADD CONSTRAINT FOREIGN KEY (FournisseurID) REFERENCES 
 
     
 -- Création de la table "Ventes" --
+    
+-- Création de la table "Ventes"
 CREATE TABLE dima.Ventes (
     VenteID INT PRIMARY KEY,
     DateVente DATE,
     ClientID INT REFERENCES Clients(ClientID),
     ProduitID INT REFERENCES Produits(ProduitID),
+    EmployeID INT,
+    FOREIGN KEY (EmployeID) REFERENCES Employes(EmployeID),
     QuantiteVendue INT,
     MontantTotal DECIMAL(10, 2)
 );
