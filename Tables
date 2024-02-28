@@ -11,6 +11,9 @@ CREATE TABLE dima.Clients (
 ALTER TABLE dima.Clients ADD zipCode DECIMAL;
 ALTER TABLE dima.Clients DROP COLUMN zipCode;
 
+-- Afficher la structure de la Table Clients -- 
+DESCRIBE dima.Clients;
+
 -- Création de la table "Fournisseurs"
 CREATE TABLE dima.Fournisseurs (
 	FournisseurID INT PRIMARY KEY,
